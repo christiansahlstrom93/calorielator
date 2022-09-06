@@ -43,6 +43,7 @@ function Form() {
         <h5>{isMetric ? "Metric" : "US"}</h5>
         <label className="switch">
           <input
+            tabIndex={0}
             onChange={() => {
               setMetric(!isMetric);
               store("isMetric", !isMetric);
@@ -58,6 +59,7 @@ function Form() {
             <label className="checkbox-container">
               Man
               <input
+                tabIndex={1}
                 type="checkbox"
                 checked={gender === MAN}
                 onChange={(e) => (gender === WOMAN ? setGender(MAN) : "")}
@@ -67,6 +69,7 @@ function Form() {
             <label className="checkbox-container">
               Woman
               <input
+                tabIndex={2}
                 type="checkbox"
                 checked={gender === WOMAN}
                 onChange={(e) => (gender === MAN ? setGender(WOMAN) : "")}
@@ -74,9 +77,10 @@ function Form() {
               <span className="checkmark"></span>
             </label>
           </div>
-          <h5>Height</h5>
+          <h5>{`Height (${isMetric ? "cm" : "inches"})`}</h5>
           <div className="height">
             <input
+              tabIndex={3}
               className="input"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
@@ -85,9 +89,10 @@ function Form() {
               min={0}
             />
           </div>
-          <h5>Weight</h5>
+          <h5>{`Weight (${isMetric ? "kg" : "lbs"})`}</h5>
           <div className="weight">
             <input
+              tabIndex={4}
               className="input"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
@@ -99,6 +104,7 @@ function Form() {
           <h5>Age</h5>
           <div className="age">
             <input
+              tabIndex={5}
               className="input"
               value={age}
               type="number"
@@ -110,6 +116,7 @@ function Form() {
           <h5>Physical activity</h5>
           <div className="activity">
             <select
+              tabIndex={6}
               defaultValue={PAL}
               onChange={(e) => setPAL(e.target.value)}
               className="selector"
@@ -117,7 +124,9 @@ function Form() {
               <option value={1.2}>Little/no exercise</option>
               <option value={1.4}>Light exercise 1-2 times/week</option>
               <option value={1.6}>Moderate exercise 2-3 times/week</option>
+              <option value={1.65}>Moderate exercise 3-4 times/week</option>
               <option value={1.75}>Hard exercise 3-5 times/week</option>
+              <option value={1.85}>Hard exercise 4-6 times/week</option>
               <option value={2}>
                 Physical job or hard exercise 6-7 times/week
               </option>
