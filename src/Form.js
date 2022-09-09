@@ -40,7 +40,7 @@ function Form() {
     <>
       <div className="headline">Harris-Benedict formula</div>
       <div className="Form">
-        <h5>{isMetric ? "Metric" : "US"}</h5>
+        <h5>{isMetric ? "Metric" : "Imperial"}</h5>
         <label className="switch">
           <input
             tabIndex={0}
